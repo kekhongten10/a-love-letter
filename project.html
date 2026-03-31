@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAB 2</title>
+    <!-- <link rel="stylesheet" href="../bootstrap-5.3.3-dist/css/bootstrap.min.css">
+    <script src="../bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <style>
+        header h1 {
+            color: white;
+            text-shadow: 0 5px 5px black, 0 0 2px black;
+        }
+
+        .navbar .nav-item {
+            padding: 0 10px;
+        }
+
+        .card img {
+            transition: all 0.5s;
+        }
+
+        .card img:hover {
+            transform: translateY(-10px);
+        }
+        .card-header {
+            font-size: x-large;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-lg">
+        <!-- header -->
+        <header class="row mb-2">
+            <div class="col-md-6 d-flex align-content-end flex-wrap">
+                <h1 class="text-center text-sm-center">ONLINE SHOPPING MALL</h1>
+                <h5 class="border-top border-3 border-dark d-none d-md-inline-block">THE CENTER POINT OF THE PROFESSIONAL PROGRAMMING</h5>
+            </div>
+            <div class="col-md-6">
+                <img src="img/banner.jpg" width="100%">
+            </div>
+        </header>
+
+        <!-- navbar -->
+        <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+            <div class="container-fluid">
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#"><i class="fa-solid fa-house"></i> Trang chủ</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fa-solid fa-bars"></i> Giới thiệu</a>
+                  </li>                  
+                  <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fa-solid fa-phone"></i> Liên hệ</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fa-regular fa-envelope"></i> Góp ý</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fa-regular fa-user"></i> Hỏi Đáp</a>
+                  </li>  
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Tài khoản
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">Action</a></li>
+                      <li><a class="dropdown-item" href="#">Another action</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                  </li>
+                </ul>                              
+              </div>
+
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a href="" class="nav-link">English</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link">Tiếng Việt</a>
+                </li>
+              </ul>
+            </div>
+        </nav>
+
+        <!-- main -->
+        <main class="row mt-3">
+            <!-- vung san pham (9 cot) -->
+            <section class="col-lg-9 col-md-8">
+                <div class="row g-3">
+                    <!-- 1 san pham -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card text-center">
+                            <div class="card-header">Macbook 2025</div>
+                            <div class="card-body">
+                                <a href=""><img class="w-100" src="img/mac1.jpg"></a>
+                            </div>
+                            <div class="card-footer">
+                                <div class="card-text fw-bold fs-4 text-danger">19,990,000</div>
+                                <div>CPU: i9-19999K</div>
+                                <div>RAM: 64GB</div>
+                                <div>SSD: 100TB</div>
+                                <p>GPU: RTX 5090</p>
+                                <button class="btn btn-primary">Mua</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card text-center">
+                            <div class="card-header">Macbook Pro 2025</div>
+                            <div class="card-body">
+                                <a href=""><img class="w-100" src="img/mac2.jpg"></a>
+                            </div>
+                            <div class="card-footer">
+                                <div class="card-text fw-bold fs-4 text-danger">19,990,000</div>
+                                <div>CPU: i9-19999K</div>
+                                <div>RAM: 64GB</div>
+                                <div>SSD: 100TB</div>
+                                <p>GPU: RTX 5090</p>
+                                <button class="btn btn-primary">Mua</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card text-center">
+                            <div class="card-header">Macbook Air 2025</div>
+                            <div class="card-body">
+                                <a href=""><img class="w-100" src="img/mac3.jpg"></a>
+                            </div>
+                            <div class="card-footer">
+                                <div class="card-text fw-bold fs-4 text-danger">19,990,000</div>
+                                <div>CPU: i9-19999K</div>
+                                <div>RAM: 64GB</div>
+                                <div>SSD: 100TB</div>
+                                <p>GPU: RTX 5090</p>
+                                <button class="btn btn-primary">Mua</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card text-center">
+                            <div class="card-header">Asus Vivobook</div>
+                            <div class="card-body">
+                                <a href=""><img class="w-100" src="img/asus1.jpg"></a>
+                            </div>
+                            <div class="card-footer">
+                                <div class="card-text fw-bold fs-4 text-danger">19,990,000</div>
+                                <div>CPU: i9-19999K</div>
+                                <div>RAM: 64GB</div>
+                                <div>SSD: 100TB</div>
+                                <p>GPU: RTX 5090</p>
+                                <button class="btn btn-primary">Mua</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card text-center">
+                            <div class="card-header">Asus TUF</div>
+                            <div class="card-body">
+                                <a href=""><img class="w-100" src="img/asus2.jpg"></a>
+                            </div>
+                            <div class="card-footer">
+                                <div class="card-text fw-bold fs-4 text-danger">19,990,000</div>
+                                <div>CPU: i9-19999K</div>
+                                <div>RAM: 64GB</div>
+                                <div>SSD: 100TB</div>
+                                <p>GPU: RTX 5090</p>
+                                <button class="btn btn-primary">Mua</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card text-center">
+                            <div class="card-header">Asus ROG</div>
+                            <div class="card-body">
+                                <a href=""><img class="w-100" src="img/asus3.jpg"></a>
+                            </div>
+                            <div class="card-footer">
+                                <div class="card-text fw-bold fs-4 text-danger">19,990,000</div>
+                                <div>CPU: i9-19999K</div>
+                                <div>RAM: 64GB</div>
+                                <div>SSD: 100TB</div>
+                                <p>GPU: RTX 5090</p>
+                                <button class="btn btn-primary">Mua</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card text-center">
+                            <div class="card-header">Dell Latitude</div>
+                            <div class="card-body">
+                                <a href=""><img class="w-100" src="img/dell1.jpg"></a>
+                            </div>
+                            <div class="card-footer">
+                                <div class="card-text fw-bold fs-4 text-danger">19,990,000</div>
+                                <div>CPU: i9-19999K</div>
+                                <div>RAM: 64GB</div>
+                                <div>SSD: 100TB</div>
+                                <p>GPU: RTX 5090</p>
+                                <button class="btn btn-primary">Mua</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card text-center">
+                            <div class="card-header">Dell Inspiron</div>
+                            <div class="card-body">
+                                <a href=""><img class="w-100" src="img/dell2.jpg"></a>
+                            </div>
+                            <div class="card-footer">
+                                <div class="card-text fw-bold fs-4 text-danger">19,990,000</div>
+                                <div>CPU: i9-19999K</div>
+                                <div>RAM: 64GB</div>
+                                <div>SSD: 100TB</div>
+                                <p>GPU: RTX 5090</p>
+                                <button class="btn btn-primary">Mua</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card text-center">
+                            <div class="card-header">Dell XPS</div>
+                            <div class="card-body">
+                                <a href=""><img class="w-100" src="img/dell3.jpg"></a>
+                            </div>
+                            <div class="card-footer">
+                                <div class="card-text fw-bold fs-4 text-danger">19,990,000</div>
+                                <div>CPU: i9-19999K</div>
+                                <div>RAM: 64GB</div>
+                                <div>SSD: 100TB</div>
+                                <p>GPU: RTX 5090</p>
+                                <button class="btn btn-primary">Mua</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card text-center">
+                            <div class="card-header">HP Victus</div>
+                            <div class="card-body">
+                                <a href=""><img class="w-100" src="img/hp1.jpg"></a>
+                            </div>
+                            <div class="card-footer">
+                                <div class="card-text fw-bold fs-4 text-danger">19,990,000</div>
+                                <div>CPU: i9-19999K</div>
+                                <div>RAM: 64GB</div>
+                                <div>SSD: 100TB</div>
+                                <p>GPU: RTX 5090</p>
+                                <button class="btn btn-primary">Mua</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card text-center">
+                            <div class="card-header">HP Pavilion</div>
+                            <div class="card-body">
+                                <a href=""><img class="w-100" src="img/hp2.jpg"></a>
+                            </div>
+                            <div class="card-footer">
+                                <div class="card-text fw-bold fs-4 text-danger">19,990,000</div>
+                                <div>CPU: i9-19999K</div>
+                                <div>RAM: 64GB</div>
+                                <div>SSD: 100TB</div>
+                                <p>GPU: RTX 5090</p>
+                                <button class="btn btn-primary">Mua</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card text-center">
+                            <div class="card-header">HP OmniBook</div>
+                            <div class="card-body">
+                                <a href=""><img class="w-100" src="img/hp3.jpg"></a>
+                            </div>
+                            <div class="card-footer">
+                                <div class="card-text fw-bold fs-4 text-danger">19,990,000</div>
+                                <div>CPU: i9-19999K</div>
+                                <div>RAM: 64GB</div>
+                                <div>SSD: 100TB</div>
+                                <p>GPU: RTX 5090</p>
+                                <button class="btn btn-primary">Mua</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card text-center">
+                            <div class="card-header">Lenovo ThinkPad</div>
+                            <div class="card-body">
+                                <a href=""><img class="w-100" src="img/lenovo1.jpg"></a>
+                            </div>
+                            <div class="card-footer">
+                                <div class="card-text fw-bold fs-4 text-danger">19,990,000</div>
+                                <div>CPU: i9-19999K</div>
+                                <div>RAM: 64GB</div>
+                                <div>SSD: 100TB</div>
+                                <p>GPU: RTX 5090</p>
+                                <button class="btn btn-primary">Mua</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card text-center">
+                            <div class="card-header">Lenovo LOQ</div>
+                            <div class="card-body">
+                                <a href=""><img class="w-100" src="img/lenovo2.jpg"></a>
+                            </div>
+                            <div class="card-footer">
+                                <div class="card-text fw-bold fs-4 text-danger">19,990,000</div>
+                                <div>CPU: i9-19999K</div>
+                                <div>RAM: 64GB</div>
+                                <div>SSD: 100TB</div>
+                                <p>GPU: RTX 5090</p>
+                                <button class="btn btn-primary">Mua</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card text-center">
+                            <div class="card-header">Lenovo Legion</div>
+                            <div class="card-body">
+                                <a href=""><img class="w-100" src="img/lenovo3.jpg"></a>
+                            </div>
+                            <div class="card-footer">
+                                <div class="card-text fw-bold fs-4 text-danger">19,990,000</div>
+                                <div>CPU: i9-19999K</div>
+                                <div>RAM: 64GB</div>
+                                <div>SSD: 100TB</div>
+                                <p>GPU: RTX 5090</p>
+                                <button class="btn btn-primary">Mua</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- vung side (3 cot) -->
+            <aside class="col-lg-3 col-md-4">
+                <div class="card shadow">
+                    <div class="card-body d-flex justify-content-center">
+                        <img class="w-25" src="img/shoppingcart.gif">
+                        
+                    </div>
+                    <a href="" class="btn btn-primary">VIEW CART</a>
+                </div>
+
+                <div class="card shadow my-3">
+                    <div class="card-body">
+                        <input type="search" class="form-control" placeholder="Keywords">
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header text-center">
+                        <i class="fa fa-bars" aria-hidden="true"></i>
+                        LOẠI
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group list-group-flush">
+                            <a href="" class="list-group-item list-group-item-action">Macbook</a>
+                            <a href="" class="list-group-item list-group-item-action">Asus</a>
+                            <a href="" class="list-group-item list-group-item-action">Dell</a>
+                            <a href="" class="list-group-item list-group-item-action">HP</a>
+                            <a href="" class="list-group-item list-group-item-action">Lenovo</a>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </main>
+    </div> 
+    
+    <!-- footer -->
+    <footer class="bg-dark">
+        <div class="container-xl text-secondary pt-4 mt-3">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 class="text-white">THONG TIN</h5>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero officiis dolore deleniti eius dignissimos velit culpa magnam eligendi cupiditate a! Omnis facilis soluta corporis similique dolores nesciunt tempora, inventore itaque?
+                    </p>
+                </div>
+                <div class="col-md-3 col-6">
+                    <h5 class="text-white">SAN PHAM</h5>
+                    <nav class="nav flex-column">
+                        <a class="nav-link active" aria-current="page" href="#">Active</a>
+                        <a class="nav-link" href="#">Link</a>
+                        <a class="nav-link" href="#">Link</a>
+                        <a class="nav-link" href="#">Disabled</a>
+                    </nav>
+                </div>
+                <div class="col-md-3 col-6">
+                    <h5 class="text-white">THONG TIN NHANH</h5>
+                    <p>Goi mua hang: 19001990</p>
+                    <p>Goi mua hang: 19001990</p>
+                    <p>Goi mua hang: 19001990</p>
+                    <p>Goi mua hang: 19001990</p>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="d-flex justify-content-between">
+                <p>Copyright &copy;, All Rights Reserved</p>
+                <div>
+                    <a href="" class="btn btn-secondary rounded-circle"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="" class="btn btn-secondary rounded-circle"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="" class="btn btn-secondary rounded-circle"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="" class="btn btn-secondary rounded-circle"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

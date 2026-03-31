@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laptop Store</title>
+    <!-- <link rel="stylesheet" href="../bootstrap-5.3.3-dist/css/bootstrap.min.css">
+    <script src="../bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <style>
+        header h1 {
+            color: white;
+            text-shadow: 0 5px 5px blue, 0 0 2px blue;
+        }
+
+        .navbar .nav-item {
+            padding: 0 10px;
+        }
+
+        .card img {
+            transition: all 0.5s;
+        }
+
+        .card img:hover {
+            transform: translateY(-10px);
+        }
+        .card-header {
+            font-size: x-large;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-lg">
+        <!-- header -->
+        <header class="row mb-2">
+            <div class="col-md-4 d-flex align-content-end flex-wrap">
+                <h1 class="text-center text-sm-center">KHẢI LAPTOP STORE</h1>
+                <h5 class="border-top border-3 border-dark d-none d-md-inline-block">Chuyên cung cấp laptop rẻ nhất phố</h5>
+            </div>
+            <div class="col-md-8">
+                <img src="img/banner.jpg" width="100%">
+            </div>
+        </header>
+
+        <!-- navbar -->
+        <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+            <div class="container-fluid">
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#"><i class="fa-solid fa-house"></i> Trang chủ</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fa-solid fa-bars"></i> Giới thiệu</a>
+                  </li>                  
+                  <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fa-solid fa-phone"></i> Liên hệ</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fa-regular fa-envelope"></i> Góp ý</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fa-regular fa-user"></i> Hỏi Đáp</a>
+                  </li>  
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Tài khoản
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">Action</a></li>
+                      <li><a class="dropdown-item" href="#">Another action</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                  </li>
+                </ul>                              
+              </div>
+
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a href="" class="nav-link">English</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link">Tiếng Việt</a>
+                </li>
+              </ul>
+            </div>
+        </nav>
+
+        <!-- main -->
+        <main class="row mt-3">
+            <!-- vung san pham (9 cot) -->
+            <section class="col-lg-9 col-md-8">
+                <div class="row g-3">
+                    <!-- 1 san pham -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card text-center">
+                            <div class="card-header">Macbook 2025</div>
+                            <div class="card-body">
+                                <a href=""><img class="w-100" src="img/mac1.jpg"></a>
+                            </div>
+                            <div class="card-footer">
+                                <div class="card-text fw-bold fs-4 text-danger">19,990,000</div>
+                                <div>CPU: i9-19999K</div>
+                                <div>RAM: 64GB</div>
+                                <div>SSD: 100TB</div>
+                                <p>GPU: RTX 5090</p>
+                                <button class="btn btn-primary">Mua</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card text-center">
+                            <div class="card-header">Macbook Pro 2025</div>
+                            <div class="card-body">
+                                <a href=""><img class="w-100" src="img/mac2.jpg"></a>
+                            </div>
+                            <div class="card-footer">
+                                <div class="card-text fw-bold fs-4 text-danger">29,990,000</div>
+                                <div>CPU: i9-19999K</div>
+                                <div>RAM: 64GB</div>
+                                <div>SSD: 100TB</div>
+                                <p>GPU: RTX 5090</p>
+                                <button class="btn btn-primary">Mua</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card text-center">
+                            <div class="card-header">Macbook Air 2025</div>
+                            <div class="card-body">
+                                <a href=""><img class="w-100" src="img/mac3.jpg"></a>
+                            </div>
+                            <div class="card-footer">
+                                <div class="card-text fw-bold fs-4 text-danger">39,990,000</div>
+                                <div>CPU: i9-19999K</div>
+                                <div>RAM: 64GB</div>
+                                <div>SSD: 100TB</div>
+                                <p>GPU: RTX 5090</p>
+                                <button class="btn btn-primary">Mua</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card text-center">
+                            <div class="card-header">Asus Vivobook</div>
+                            <div class="card-body">
+                                <a href=""><img class="w-100" src="img/asus1.jpg"></a>
+                            </div>
+                            <div class="card-footer">
+                                <div class="card-text fw-bold fs-4 text-danger">79,990,000</div>
+                                <div>CPU: i9-19999K</div>
+                                <div>RAM: 64GB</div>
+                                <div>SSD: 100TB</div>
+                                <p>GPU: RTX 5090</p>
+                                <button class="btn btn-primary">Mua</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card text-center">
+                            <div class="card-header">Asus TUF</div>
+                            <div class="card-body">
+                                <a href=""><img class="w-100" src="img/asus2.jpg"></a>
+                            </div>
+                            <div class="card-footer">
+                                <div class="card-text fw-bold fs-4 text-danger">89,990,000</div>
+                                <div>CPU: i9-19999K</div>
+                                <div>RAM: 64GB</div>
+                                <div>SSD: 100TB</div>
+                                <p>GPU: RTX 5090</p>
+                                <button class="btn btn-primary">Mua</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card text-center">
+                            <div class="card-header">Asus ROG</div>
+                            <div class="card-body">
+                                <a href=""><img class="w-100" src="img/asus3.jpg"></a>
+                            </div>
+                            <div class="card-footer">
+                                <div class="card-text fw-bold fs-4 text-danger">99,990,000</div>
+                                <div>CPU: i9-19999K</div>
+                                <div>RAM: 64GB</div>
+                                <div>SSD: 100TB</div>
+                                <p>GPU: RTX 5090</p>
+                                <button class="btn btn-primary">Mua</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card text-center">
+                            <div class="card-header">Dell Latitude</div>
+                            <div class="card-body">
+                                <a href=""><img class="w-100" src="img/dell1.jpg"></a>
+                            </div>
+                            <div class="card-footer">
+                                <div class="card-text fw-bold fs-4 text-danger">49,990,000</div>
+                                <div>CPU: i9-19999K</div>
+                                <div>RAM: 64GB</div>
+                                <div>SSD: 100TB</div>
+                                <p>GPU: RTX 5090</p>
+                                <button class="btn btn-primary">Mua</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card text-center">
+                            <div class="card-header">Dell Inspiron</div>
+                            <div class="card-body">
+                                <a href=""><img class="w-100" src="img/dell2.jpg"></a>
+                            </div>
+                            <div class="card-footer">
+                                <div class="card-text fw-bold fs-4 text-danger">59,990,000</div>
+                                <div>CPU: i9-19999K</div>
+                                <div>RAM: 64GB</div>
+                                <div>SSD: 100TB</div>
+                                <p>GPU: RTX 5090</p>
+                                <button class="btn btn-primary">Mua</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card text-center">
+                            <div class="card-header">Dell XPS</div>
+                            <div class="card-body">
+                                <a href=""><img class="w-100" src="img/dell3.jpg"></a>
+                            </div>
+                            <div class="card-footer">
+                                <div class="card-text fw-bold fs-4 text-danger">69,990,000</div>
+                                <div>CPU: i9-19999K</div>
+                                <div>RAM: 64GB</div>
+                                <div>SSD: 100TB</div>
+                                <p>GPU: RTX 5090</p>
+                                <button class="btn btn-primary">Mua</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card text-center">
+                            <div class="card-header">HP Victus</div>
+                            <div class="card-body">
+                                <a href=""><img class="w-100" src="img/hp1.jpg"></a>
+                            </div>
+                            <div class="card-footer">
+                                <div class="card-text fw-bold fs-4 text-danger">19,990,000</div>
+                                <div>CPU: i9-19999K</div>
+                                <div>RAM: 64GB</div>
+                                <div>SSD: 100TB</div>
+                                <p>GPU: RTX 5090</p>
+                                <button class="btn btn-primary">Mua</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card text-center">
+                            <div class="card-header">HP Pavilion</div>
+                            <div class="card-body">
+                                <a href=""><img class="w-100" src="img/hp2.jpg"></a>
+                            </div>
+                            <div class="card-footer">
+                                <div class="card-text fw-bold fs-4 text-danger">19,990,000</div>
+                                <div>CPU: i9-19999K</div>
+                                <div>RAM: 64GB</div>
+                                <div>SSD: 100TB</div>
+                                <p>GPU: RTX 5090</p>
+                                <button class="btn btn-primary">Mua</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card text-center">
+                            <div class="card-header">HP OmniBook</div>
+                            <div class="card-body">
+                                <a href=""><img class="w-100" src="img/hp3.jpg"></a>
+                            </div>
+                            <div class="card-footer">
+                                <div class="card-text fw-bold fs-4 text-danger">19,990,000</div>
+                                <div>CPU: i9-19999K</div>
+                                <div>RAM: 64GB</div>
+                                <div>SSD: 100TB</div>
+                                <p>GPU: RTX 5090</p>
+                                <button class="btn btn-primary">Mua</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card text-center">
+                            <div class="card-header">Lenovo ThinkPad</div>
+                            <div class="card-body">
+                                <a href=""><img class="w-100" src="img/lenovo1.jpg"></a>
+                            </div>
+                            <div class="card-footer">
+                                <div class="card-text fw-bold fs-4 text-danger">19,990,000</div>
+                                <div>CPU: i9-19999K</div>
+                                <div>RAM: 64GB</div>
+                                <div>SSD: 100TB</div>
+                                <p>GPU: RTX 5090</p>
+                                <button class="btn btn-primary">Mua</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card text-center">
+                            <div class="card-header">Lenovo LOQ</div>
+                            <div class="card-body">
+                                <a href=""><img class="w-100" src="img/lenovo2.jpg"></a>
+                            </div>
+                            <div class="card-footer">
+                                <div class="card-text fw-bold fs-4 text-danger">19,990,000</div>
+                                <div>CPU: i9-19999K</div>
+                                <div>RAM: 64GB</div>
+                                <div>SSD: 100TB</div>
+                                <p>GPU: RTX 5090</p>
+                                <button class="btn btn-primary">Mua</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card text-center">
+                            <div class="card-header">Lenovo Legion</div>
+                            <div class="card-body">
+                                <a href=""><img class="w-100" src="img/lenovo3.jpg"></a>
+                            </div>
+                            <div class="card-footer">
+                                <div class="card-text fw-bold fs-4 text-danger">19,990,000</div>
+                                <div>CPU: i9-19999K</div>
+                                <div>RAM: 64GB</div>
+                                <div>SSD: 100TB</div>
+                                <p>GPU: RTX 5090</p>
+                                <button class="btn btn-primary">Mua</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- vung side (3 cot) -->
+            <aside class="col-lg-3 col-md-4">
+                <!-- Nút View Cart -->
+                <div class="card shadow">
+                    <div class="card-body d-flex justify-content-center">
+                    <img class="w-25" src="img/shoppingcart.gif">
+                    </div>
+                    <a href="#cartModal" class="btn btn-primary" data-bs-toggle="modal">GIỎ HÀNG</a>
+                </div>
+                
+                <!-- Modal Cart -->
+                <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="cartModalLabel">Giỏ hàng của bạn</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                        <table class="table table-bordered">
+                            <thead>
+                            <tr>
+                                <th>Sản phẩm</th>
+                                <th>Số lượng</th>
+                                <th>Đơn giá</th>
+                                <th>Thành tiền</th>
+                                <th>Hành động</th>
+                            </tr>
+                            </thead>
+                            <tbody id="cartItems">
+                            <!-- Items will be dynamically inserted here -->
+                            </tbody>
+                        </table>
+                        <div class="text-end fw-bold fs-5">Tổng thành tiền: <span id="grandTotal" class="text-danger">0</span> VND</div>
+
+                        <!-- Thông tin khách hàng -->
+                        <h5 class="mb-3">Thông tin khách hàng</h5>
+                        <form id="customerForm">
+                            <div class="mb-3">
+                                <label class="form-label">Họ tên</label>
+                                <input type="text" class="form-control" id="customerName" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Số điện thoại</label>
+                                <input type="tel" class="form-control" id="customerPhone" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Email</label>
+                                <input type="email" class="form-control" id="customerEmail" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Địa chỉ giao hàng</label>
+                                <textarea class="form-control" id="customerAddress" rows="2" required></textarea>
+                            </div>
+                        </form>
+                        </div>
+                        <div class="modal-footer">
+                        <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+                        <button type="button" class="btn btn-success" onclick="saveCart()">Đặt hàng</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+                <div class="card shadow my-3">
+                    <div class="card-body">
+                        <input type="search" class="form-control" placeholder="Tìm kiếm...">
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header text-center">
+                        <i class="fa fa-bars" aria-hidden="true"></i>
+                        HÃNG
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group list-group-flush">
+                            <button class="list-group-item list-group-item-action" onclick="filterProducts('')">Tất cả</button>
+                            <button class="list-group-item list-group-item-action" onclick="filterProducts('Macbook')">Macbook</button>
+                            <button class="list-group-item list-group-item-action" onclick="filterProducts('Asus')">Asus</button>
+                            <button class="list-group-item list-group-item-action" onclick="filterProducts('Dell')">Dell</button>
+                            <button class="list-group-item list-group-item-action" onclick="filterProducts('HP')">HP</button>
+                            <button class="list-group-item list-group-item-action" onclick="filterProducts('Lenovo')">Lenovo</button>                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mt-3">
+                    <div class="card-header text-center">
+                        <i class="fa fa-bars" aria-hidden="true"></i>
+                        GIÁ TIỀN
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group list-group-flush">
+                            <button class="list-group-item list-group-item-action" onclick="sortProducts('desc')">Giảm dần</button>
+                            <button class="list-group-item list-group-item-action" onclick="sortProducts('asc')">Tăng dần</button>
+                            <button class="list-group-item list-group-item-action" onclick="filterPriceRange(10000000, 30000000)">10 triệu - 30 triệu</button>
+                            <button class="list-group-item list-group-item-action" onclick="filterPriceRange(30000000, 50000000)">30 triệu - 50 triệu</button>
+                            <button class="list-group-item list-group-item-action" onclick="filterPriceRange(50000000, 70000000)">50 triệu - 70 triệu</button>
+                            <button class="list-group-item list-group-item-action" onclick="filterPriceRange(70000000, 100000000)">70 triệu - 100 triệu</button>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </main>
+    </div> 
+    
+    <!-- footer -->
+    <footer class="bg-dark">
+        <div class="container-xl text-secondary pt-4 mt-3">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 class="text-white">THONG TIN</h5>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero officiis dolore deleniti eius dignissimos velit culpa magnam eligendi cupiditate a! Omnis facilis soluta corporis similique dolores nesciunt tempora, inventore itaque?
+                    </p>
+                </div>
+                <div class="col-md-3 col-6">
+                    <h5 class="text-white">SAN PHAM</h5>
+                    <nav class="nav flex-column">
+                        <a class="nav-link active" aria-current="page" href="#">Active</a>
+                        <a class="nav-link" href="#">Link</a>
+                        <a class="nav-link" href="#">Link</a>
+                        <a class="nav-link" href="#">Disabled</a>
+                    </nav>
+                </div>
+                <div class="col-md-3 col-6">
+                    <h5 class="text-white">THONG TIN NHANH</h5>
+                    <p>Goi mua hang: 19001990</p>
+                    <p>Goi mua hang: 19001990</p>
+                    <p>Goi mua hang: 19001990</p>
+                    <p>Goi mua hang: 19001990</p>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="d-flex justify-content-between">
+                <p>Copyright &copy;, All Rights Reserved</p>
+                <div>
+                    <a href="" class="btn btn-secondary rounded-circle"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="" class="btn btn-secondary rounded-circle"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="" class="btn btn-secondary rounded-circle"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="" class="btn btn-secondary rounded-circle"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function filterProducts(brand) {
+            // Lấy tất cả các phần tử có class .card-header (tên sản phẩm)
+            const cards = document.querySelectorAll('.card-header');
+
+            // Lặp qua từng phần tử header (tức từng sản phẩm)
+            cards.forEach(header => {
+                // Tìm phần tử cha gần nhất có class col-lg-4 hoặc col-md-6 (tức là 1 sản phẩm)
+                const card = header.closest('.col-lg-4, .col-md-6');
+
+                // Kiểm tra nếu header có chứa chuỗi brand (ví dụ: 'Asus', 'Dell', ...)
+                // Hoặc nếu brand là rỗng '' (hiển thị tất cả)
+                if (header.textContent.includes(brand) || brand === '') {
+                    // Hiển thị sản phẩm
+                    card.style.display = 'block';
+                } else {
+                    // Ẩn sản phẩm không khớp brand
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function sortProducts(order) {
+            // Lấy container chứa tất cả các card sản phẩm (nằm trong phần 9 cột)
+            const container = document.querySelector('.col-lg-9 .row');
+
+            // Lấy tất cả các card sản phẩm (class col-lg-4 hoặc col-md-6)
+            const cards = Array.from(container.querySelectorAll('.col-lg-4, .col-md-6'));
+
+            // Sắp xếp các card dựa trên giá tiền
+            cards.sort((a, b) => {
+                // Lấy giá tiền của từng sản phẩm A và B
+                // Dùng regex /[^\d]/g để xoá các ký tự không phải là số (dấu phẩy, chữ)
+                // Sau đó chuyển chuỗi thành số nguyên
+                const priceA = parseInt(a.querySelector('.card-footer .card-text').textContent.replace(/[^\d]/g, ''));
+                const priceB = parseInt(b.querySelector('.card-footer .card-text').textContent.replace(/[^\d]/g, ''));
+
+                // Nếu order = 'asc' (tăng dần), trả về priceA - priceB
+                // Nếu order = 'desc' (giảm dần), trả về priceB - priceA
+                return order === 'asc' ? priceA - priceB : priceB - priceA;
+            });
+
+            // Sau khi sắp xếp, gắn lại các card vào container theo thứ tự mới
+            cards.forEach(card => container.appendChild(card));
+        }
+
+        function filterPriceRange(min, max) {
+            const cards = document.querySelectorAll('.col-lg-4, .col-md-6');
+            cards.forEach(card => {
+                const price = parseInt(card.querySelector('.card-footer .card-text').textContent.replace(/[^\d]/g, ''));
+                
+                if (price >= min && price <= max) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+
+        // Thêm chức năng tìm kiếm cho nút search
+        const searchInput = document.querySelector('input[type="search"]');
+        searchInput.addEventListener('input', function() {
+            const keyword = this.value.toLowerCase();
+            const cards = document.querySelectorAll('.card-header');
+
+            cards.forEach(header => {
+                const card = header.closest('.col-lg-4, .col-md-6');
+                const productName = header.textContent.toLowerCase();
+
+                if (productName.includes(keyword)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+
+        let cart = [];
+
+        // Load cart from Local Storage on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedCart = localStorage.getItem('cart');
+            if (savedCart) {
+            cart = JSON.parse(savedCart);
+            renderCart();
+            }
+        });
+
+        // Bắt sự kiện khi bấm nút "Mua"
+        document.querySelectorAll('.card-footer .btn-primary').forEach(button => {
+            button.addEventListener('click', e => {
+            e.preventDefault();
+            const card = e.target.closest('.card');
+            const product = card.querySelector('.card-header').innerText;
+            const price = parseInt(card.querySelector('.card-text').innerText.replace(/[^\d]/g, ''));
+
+            const existing = cart.find(item => item.product === product);
+            if (existing) {
+                existing.quantity++;
+            } else {
+                cart.push({ product, quantity: 1, price });
+            }
+
+            renderCart();
+            alert(`Đã thêm "${product}" vào giỏ hàng!`);
+            });
+        });
+
+        function renderCart() {
+            const cartTable = document.getElementById('cartItems');
+            cartTable.innerHTML = '';
+            let grandTotal = 0;
+
+            cart.forEach((item, index) => {
+            const itemTotal = item.price * item.quantity;
+            grandTotal += itemTotal;
+
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${item.product}</td>
+                <td><input type="number" value="${item.quantity}" min="1" onchange="updateQuantity(${index}, this.value)"></td>
+                <td>${item.price.toLocaleString()}</td>
+                <td>${itemTotal.toLocaleString()}</td>
+                <td>
+                <button class="btn btn-sm btn-warning" onclick="updateQuantity(${index}, ${item.quantity + 1})">+</button>
+                <button class="btn btn-sm btn-warning" onclick="updateQuantity(${index}, ${item.quantity - 1})">-</button>
+                <button class="btn btn-sm btn-danger" onclick="removeItem(${index})">Xoá</button>
+                </td>
+            `;
+            cartTable.appendChild(row);
+            });
+
+            document.getElementById('grandTotal').innerText = grandTotal.toLocaleString();
+        }
+
+        function updateQuantity(index, quantity) {
+            if (quantity <= 0) {
+            removeItem(index);
+            } else {
+            cart[index].quantity = parseInt(quantity);
+            renderCart();
+            }
+        }
+
+        function removeItem(index) {
+            cart.splice(index, 1);
+            renderCart();
+        }
+
+        function saveCustomerOrder(newOrder) {
+            // 1. Lấy danh sách cũ (nếu có)
+            let orders = JSON.parse(localStorage.getItem('customerOrders')) || [];
+
+            // 2. Thêm đơn hàng mới
+            orders.push(newOrder);
+
+            // 3. Ghi lại vào localStorage
+            localStorage.setItem('customerOrders', JSON.stringify(orders));
+        }
+
+        function saveCart() {
+            if (cart.length === 0) {
+                alert('Giỏ hàng đang trống. Vui lòng thêm sản phẩm trước khi đặt hàng!');
+                return;
+            }
+
+            const customer = {
+                name: document.getElementById('customerName').value.trim(),
+                phone: document.getElementById('customerPhone').value.trim(),
+                email: document.getElementById('customerEmail').value.trim(),
+                address: document.getElementById('customerAddress').value.trim()
+            };
+
+            if (!customer.name || !customer.phone || !customer.email || !customer.address) {
+                alert('Vui lòng nhập đầy đủ thông tin khách hàng!');
+                return;
+            }
+
+            const phoneRegex = /^\d{10}$/;
+            const emailRegex = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
+
+            if (!phoneRegex.test(customer.phone)) {
+                alert('Số điện thoại phải đủ 10 số!');
+                return;
+            }
+
+            if (!emailRegex.test(customer.email)) {
+                alert('Email không đúng định dạng!');
+                return;
+            }
+
+            localStorage.setItem('cart', JSON.stringify(cart));
+            const newOrder = {
+                customer,
+                cart: [...cart], // sao chép giỏ hàng hiện tại
+                date: new Date()
+            };
+
+            saveCustomerOrder(newOrder);
+
+
+            alert('Giỏ hàng đã được lưu thành công!');
+        }
+
+    </script>
+        
+</body>
+</html>
