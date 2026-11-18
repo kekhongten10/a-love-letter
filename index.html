@@ -1,716 +1,805 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laptop Store</title>
-    <!-- <link rel="stylesheet" href="../bootstrap-5.3.3-dist/css/bootstrap.min.css">
-    <script src="../bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script> -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <style>
-        header h1 {
-            color: white;
-            text-shadow: 0 5px 5px blue, 0 0 2px blue;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fff1f4">
+  <meta name="description" content="Một phong thư tình ngọt ngào với những trái tim bay và thao tác kéo trái tim lên để mở thư.">
+  <title>Gửi Xuân Nhi — Một lá thư từ Khải ♡</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --rose: #d76b86;
+      --rose-deep: #ab4968;
+      --ink: #775060;
+      --milk: #fffdfb;
+      --pink-100: #fff2f5;
+      --pink-200: #fbdce4;
+      --shadow: 0 30px 72px rgba(160, 74, 103, .18);
+    }
 
-        .navbar .nav-item {
-            padding: 0 10px;
-        }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { min-height: 100%; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      min-height: 100svh;
+      font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(ellipse 55% 40% at 50% 48%, rgba(255,255,255,.92), transparent 83%),
+        radial-gradient(ellipse 42% 48% at 5% 6%, rgba(255,219,230,.7), transparent 95%),
+        radial-gradient(ellipse 44% 40% at 98% 94%, rgba(249,199,212,.6), transparent 95%),
+        linear-gradient(145deg, #fff8fa 0%, #fff0f4 52%, #fce7ed 100%);
+      overflow-x: hidden;
+    }
 
-        .card img {
-            transition: all 0.5s;
-        }
+    .ambient {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+    .ambient::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: .35;
+      background-image: radial-gradient(#d9a4b2 .7px, transparent .7px);
+      background-size: 25px 25px;
+      mask-image: linear-gradient(to bottom, transparent, black 35%, transparent);
+    }
+    .float-heart {
+      position: absolute;
+      left: var(--left);
+      bottom: -55px;
+      width: var(--size);
+      height: var(--size);
+      background: var(--heart-color, #efb0c0);
+      opacity: 0;
+      transform: rotate(-45deg);
+      animation: heart-rise var(--duration) linear infinite;
+      animation-delay: var(--delay);
+      filter: drop-shadow(0 3px 5px rgba(215, 107, 134, .1));
+    }
+    .float-heart::before, .float-heart::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: inherit;
+      border-radius: 50%;
+    }
+    .float-heart::before { top: -50%; left: 0; }
+    .float-heart::after { left: 50%; top: 0; }
+    @keyframes heart-rise {
+      0%   { opacity: 0; transform: translate3d(0, 50px, 0) rotate(-45deg) scale(.72); }
+      12%  { opacity: var(--opacity, .46); }
+      84%  { opacity: var(--opacity, .46); }
+      100% { opacity: 0; transform: translate3d(var(--drift), -115vh, 0) rotate(-45deg) scale(1.17); }
+    }
 
-        .card img:hover {
-            transform: translateY(-10px);
-        }
-        .card-header {
-            font-size: x-large;
-        }
-    </style>
+    .page {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: clamp(32px, 5vh, 60px) 18px 28px;
+      text-align: center;
+      isolation: isolate;
+    }
+    .heading { position: relative; z-index: 2; max-width: 680px; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 13px;
+      color: #c37b90;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before, .eyebrow::after {
+      content: "";
+      width: 27px;
+      height: 1px;
+      background: #e7afbd;
+    }
+    .heading h1 {
+      margin: 18px 0 13px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(31px, 5vw, 52px);
+      font-weight: 500;
+      line-height: 1.16;
+      letter-spacing: -.035em;
+      color: #a94c69;
+    }
+    .heading h1 span { font-style: italic; color: #d97e98; }
+    .heading p {
+      margin: 0;
+      color: #a7808e;
+      font-size: clamp(13px, 1.45vw, 15px);
+      line-height: 1.7;
+    }
+
+    .scene {
+      position: relative;
+      width: min(620px, 100%);
+      height: 555px;
+      margin: -1px auto 0;
+      perspective: 1600px;
+    }
+    .scene::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      left: 50%;
+      bottom: 80px;
+      width: min(470px, 85%);
+      height: 48px;
+      transform: translateX(-50%);
+      border-radius: 50%;
+      background: rgba(165, 80, 112, .13);
+      filter: blur(25px);
+    }
+
+    .envelope {
+      position: absolute;
+      left: 50%;
+      bottom: 109px;
+      width: min(500px, calc(100% - 18px));
+      aspect-ratio: 1.63;
+      transform: translateX(-50%);
+      filter: drop-shadow(0 24px 26px rgba(172, 78, 106, .16));
+    }
+    .envelope-back {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      border-radius: 12px 12px 15px 15px;
+      background: linear-gradient(140deg, #fad8e1 0%, #f6c5d1 72%, #efb3c3 100%);
+      border: 1px solid rgba(255,255,255,.6);
+    }
+    .paper {
+      position: absolute;
+      z-index: 3;
+      top: 17px;
+      left: 50%;
+      width: 85%;
+      height: calc(100% - 32px);
+      transform: translateX(-50%);
+      border-radius: 9px 9px 5px 5px;
+      background:
+        radial-gradient(circle at 8% 12%, rgba(252,224,230,.65), transparent 25%),
+        linear-gradient(145deg, #fffefd 0%, #fff9f9 100%);
+      box-shadow: 0 4px 20px rgba(123, 62, 86, .12);
+      overflow: hidden;
+      transition: transform 1.05s cubic-bezier(.2,.79,.23,1), height 1.05s cubic-bezier(.2,.79,.23,1), box-shadow .9s;
+      will-change: transform;
+    }
+    .paper::before {
+      content: "";
+      position: absolute;
+      inset: 13px;
+      border: 1px solid #f6dce2;
+      border-radius: 4px;
+      pointer-events: none;
+    }
+    .paper-content {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100%;
+      padding: 27px clamp(20px, 5%, 40px) 22px;
+      overflow: auto;
+      scrollbar-width: thin;
+      scrollbar-color: #e7b5c4 transparent;
+    }
+    .paper-tag {
+      font-size: 10px;
+      letter-spacing: .24em;
+      color: #c48ca0;
+      font-weight: 700;
+    }
+    .paper-decoration {
+      display: block;
+      margin-top: 13px;
+      font-size: 20px;
+      color: #df91a7;
+    }
+    .paper h2 {
+      margin: 15px 0 10px;
+      font-family: Georgia, "Times New Roman", serif;
+      color: #aa5772;
+      font-size: clamp(22px, 3vw, 29px);
+      font-weight: 500;
+      font-style: italic;
+    }
+    #letterContent {
+      max-width: 335px;
+      text-align: center;
+      color: #9a7985;
+      font-size: 14px;
+      line-height: 1.85;
+      white-space: pre-line;
+    }
+    #letterContent p { margin: 0; }
+    .paper-signature {
+      margin-top: auto;
+      padding-top: 14px;
+      color: #d18ba1;
+      font-family: Georgia, serif;
+      font-style: italic;
+      font-size: 15px;
+    }
+
+    .envelope-sides {
+      position: absolute;
+      z-index: 4;
+      inset: 0;
+      border-radius: 0 0 14px 14px;
+      overflow: hidden;
+      pointer-events: none;
+    }
+    .envelope-sides::before, .envelope-sides::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+    }
+    .envelope-sides::before {
+      background: linear-gradient(135deg, #fce0e7 0%, #f6bece 95%);
+      clip-path: polygon(0 0, 52% 53%, 0 100%);
+    }
+    .envelope-sides::after {
+      background: linear-gradient(220deg, #f8cfdb 0%, #eda9bc 100%);
+      clip-path: polygon(100% 0, 48% 53%, 100% 100%);
+    }
+    .envelope-bottom {
+      position: absolute;
+      inset: 0;
+      z-index: 5;
+      border-radius: 0 0 14px 14px;
+      background: linear-gradient(180deg, #f9d0db 0%, #f3b9c9 100%);
+      clip-path: polygon(0 100%, 50% 39%, 100% 100%);
+      pointer-events: none;
+    }
+    .envelope-flap {
+      position: absolute;
+      z-index: 6;
+      inset: 0;
+      background: linear-gradient(180deg, #fbe3e9 0%, #f5c5d2 100%);
+      clip-path: polygon(0 0, 100% 0, 50% 62%);
+      transform-origin: 50% 0;
+      transform: rotateX(0deg);
+      backface-visibility: hidden;
+      transition: transform .85s cubic-bezier(.2,.7,.16,1);
+      pointer-events: none;
+      border-radius: 12px;
+    }
+    .wax-seal {
+      appearance: none;
+      padding: 0;
+      font: inherit;
+      position: absolute;
+      z-index: 7;
+      top: 54%;
+      left: 50%;
+      display: grid;
+      place-items: center;
+      width: 64px;
+      height: 64px;
+      transform: translate(-50%, calc(-50% - var(--pull-y, 0px)));
+      border-radius: 50%;
+      background: linear-gradient(145deg, #e995ad, #cb6988);
+      box-shadow: 0 5px 11px rgba(151,59,91,.22), inset 0 2px 3px rgba(255,255,255,.36), inset 0 -3px 5px rgba(141,45,79,.15);
+      border: 4px solid #efafbf;
+      transition: transform .45s cubic-bezier(.18,.8,.24,1), opacity .4s;
+      cursor: grab;
+      touch-action: none;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+    .wax-seal:focus-visible { outline: 3px solid #b45876; outline-offset: 5px; }
+    .wax-seal.is-dragging { cursor: grabbing; transition: none; }
+    .wax-seal svg { width: 26px; height: 26px; fill: #fff8fa; }
+    .scene.is-open .envelope-flap { transform: rotateX(180deg); z-index: 2; }
+    .scene.is-open .wax-seal {
+      opacity: 0;
+      transform: translate(-50%, calc(-50% - 110px)) scale(.68);
+      pointer-events: none;
+    }
+    .scene.is-open .lift-indicator,
+    .scene.is-open .gesture-guide { opacity: 0; visibility: hidden; }
+    .lift-indicator {
+      position: absolute;
+      z-index: 8;
+      left: 50%;
+      top: 13%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+      pointer-events: none;
+      color: #b9637e;
+      transition: opacity .3s, visibility .3s;
+    }
+    .lift-label {
+      border-radius: 999px;
+      padding: 5px 10px;
+      background: rgba(255, 251, 252, .8);
+      border: 1px solid rgba(255,255,255,.82);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .13em;
+      white-space: nowrap;
+      box-shadow: 0 3px 12px rgba(172,78,106,.06);
+    }
+    .lift-arrow {
+      display: block;
+      font-family: Georgia, serif;
+      font-size: 36px;
+      line-height: 1;
+      animation: hint-rise 1.65s ease-in-out infinite;
+      text-shadow: 0 2px 4px #fff8;
+    }
+    @keyframes hint-rise {
+      0%, 100% { transform: translateY(7px); opacity: .55; }
+      50% { transform: translateY(-5px); opacity: 1; }
+    }
+    .gesture-guide {
+      position: absolute;
+      z-index: 10;
+      left: 12px;
+      right: 12px;
+      bottom: 52px;
+      margin: 0;
+      color: #aa6d82;
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.5;
+      pointer-events: none;
+      transition: opacity .3s, visibility .3s;
+    }
+    .gesture-guide span { color: #cb7592; }
+    .scene.is-pulling .lift-indicator { opacity: .35; }
+    .scene.is-revealed .paper {
+      z-index: 8;
+      height: 344px;
+      transform: translate(-50%, -145px) rotate(-.8deg);
+      box-shadow: 0 21px 50px rgba(139, 62, 90, .19);
+    }
+
+    .scene.is-revealed .envelope { filter: drop-shadow(0 19px 25px rgba(172, 78, 106, .12)); }
+    .actions {
+      display: flex;
+      justify-content: center;
+      margin-top: -25px;
+      min-height: 43px;
+      position: relative;
+      z-index: 12;
+    }
+    .close-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border: 1px solid #e9bbca;
+      border-radius: 999px;
+      background: rgba(255,255,255,.76);
+      color: #a85d77;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 5px 18px rgba(156,78,105,.07);
+      transition: background .2s, transform .2s;
+    }
+    .close-button:hover { background: white; transform: translateY(-2px); }
+    .close-button:focus-visible { outline: 3px solid #e5a7ba; outline-offset: 3px; }
+    .close-button[hidden] { display: none; }
+    .footer-note {
+      margin: 18px 0 0;
+      color: #c59aaa;
+      font-size: 11px;
+      letter-spacing: .16em;
+    }
+
+    @media (max-width: 600px) {
+      .page { padding-top: 47px; padding-left: 12px; padding-right: 12px; }
+      .heading h1 { margin-top: 17px; }
+      .heading p { padding: 0 16px; }
+      .scene { height: 485px; margin-top: 0; }
+      .envelope { bottom: 116px; width: min(430px, calc(100% - 20px)); }
+      .scene::after { bottom: 88px; }
+      .scene.is-revealed .paper { height: 296px; transform: translate(-50%, -145px) rotate(-.8deg); }
+      .paper-content { padding: 23px 16px 17px; }
+      .paper-tag { font-size: 9px; }
+      .paper-decoration { margin-top: 9px; }
+      .paper h2 { margin-top: 10px; font-size: 23px; }
+      #letterContent { font-size: 12.5px; line-height: 1.75; }
+      .wax-seal { width: 53px; height: 53px; border-width: 3px; }
+      .lift-indicator { top: 9%; }
+      .lift-arrow { font-size: 29px; }
+      .gesture-guide { bottom: 59px; font-size: 12px; }
+      .wax-seal svg { width: 21px; height: 21px; }
+      .actions { margin-top: -30px; }
+      .footer-note { margin-top: 15px; }
+    }
+    @media (max-width: 360px) {
+      .page { padding-top: 30px; }
+      .eyebrow { font-size: 9px; }
+      .heading h1 { font-size: 29px; }
+      .scene { height: 450px; }
+      .envelope { bottom: 109px; }
+      .scene.is-revealed .paper { height: 285px; transform: translate(-50%, -132px) rotate(-.8deg); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .float-heart { animation: none; display: none; }
+      .envelope-flap, .paper, .wax-seal, .gesture-guide, .lift-indicator { transition-duration: .01ms !important; }
+      .lift-arrow { animation: none; }
+    }
+
+    /* Thư dài được đọc trong trang giấy lớn, cuộn độc lập với nền. */
+    body.reading-active { overflow: hidden; }
+    .reading-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 50;
+      display: grid;
+      place-items: center;
+      padding: clamp(10px, 3vh, 26px) 14px;
+      background: rgba(110, 53, 78, .35);
+      -webkit-backdrop-filter: blur(8px);
+      backdrop-filter: blur(8px);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity .45s ease, visibility .45s ease;
+    }
+    .reading-overlay.is-visible {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+    .reading-sheet {
+      width: min(740px, 100%);
+      height: min(860px, calc(100svh - 24px));
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+      border-radius: 15px;
+      border: 1px solid #fffdfd;
+      background:
+        radial-gradient(circle at 100% 0%, rgba(252, 217, 226, .33), transparent 35%),
+        linear-gradient(145deg, #fffefd, #fff9f9);
+      box-shadow: 0 28px 95px rgba(96, 38, 65, .28), 0 0 0 8px rgba(255,255,255,.15);
+      overflow: hidden;
+      transform: translateY(34px) scale(.95);
+      transition: transform .55s cubic-bezier(.18,.8,.27,1);
+    }
+    .reading-overlay.is-visible .reading-sheet { transform: translateY(0) scale(1); }
+    .reading-topbar, .reading-bottom { flex: none; }
+    .reading-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 16px clamp(17px, 4vw, 35px);
+      border-bottom: 1px solid #f5dfe5;
+    }
+    .reading-overline {
+      font-size: 10px;
+      letter-spacing: .18em;
+      font-weight: 700;
+      color: #c18497;
+    }
+    .reading-close {
+      appearance: none;
+      border: 1px solid #edc4d0;
+      border-radius: 999px;
+      background: #fff5f8;
+      color: #a95572;
+      padding: 9px 14px;
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 1.3;
+      cursor: pointer;
+      flex: none;
+    }
+    .reading-close:hover { background: #fce4ec; }
+    .reading-close:focus-visible { outline: 3px solid #b95c7d; outline-offset: 3px; }
+    .reading-scroll {
+      flex: 1;
+      min-height: 0;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      -webkit-overflow-scrolling: touch;
+      padding: clamp(22px, 4vw, 52px) clamp(20px, 6vw, 70px) 28px;
+      scrollbar-width: thin;
+      scrollbar-color: #dfb4c1 transparent;
+      text-align: left;
+    }
+    .reading-scroll:focus-visible { outline: 3px solid #ebadc2; outline-offset: -4px; }
+    .letter-prose { max-width: 600px; margin: 0 auto; }
+    .letter-prose h2 {
+      margin: 0 0 28px;
+      color: #a74f6d;
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: clamp(27px, 4.4vw, 36px);
+      font-weight: 500;
+      line-height: 1.3;
+    }
+    .letter-prose > p, .letter-signature p {
+      margin: 0 0 23px;
+      color: #634651;
+      font-size: clamp(15px, 1.7vw, 16px);
+      font-weight: 400;
+      line-height: 1.95;
+      text-align: left;
+      overflow-wrap: break-word;
+    }
+    .letter-signature { padding-top: 4px; }
+    .letter-signature p { margin-bottom: 6px; }
+    .letter-signature p:last-child {
+      color: #a75573;
+      font: italic 28px/1.55 Georgia, 'Times New Roman', serif;
+    }
+    .reading-bottom {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      padding: 12px;
+      border-top: 1px solid #f5dfe5;
+      color: #c58a9e;
+      font-size: 11px;
+      letter-spacing: .12em;
+    }
+    .reading-bottom span { color: #dc8ca5; }
+    @media (max-width: 600px) {
+      .reading-overlay { padding: 8px; }
+      .reading-sheet { height: calc(100svh - 16px); border-radius: 12px; }
+      .reading-topbar { padding: 12px 14px; gap: 8px; }
+      .reading-overline { font-size: 9px; letter-spacing: .08em; }
+      .reading-close { padding: 9px 11px; font-size: 11px; }
+      .reading-scroll { padding: 28px 22px 26px; }
+      .letter-prose > p, .letter-signature p { font-size: 15px; line-height: 1.87; margin-bottom: 19px; }
+      .letter-prose h2 { margin-bottom: 22px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .reading-overlay, .reading-sheet { transition-duration: .01ms !important; }
+    }
+
+  </style>
 </head>
 <body>
-    <div class="container-lg">
-        <!-- header -->
-        <header class="row mb-2">
-            <div class="col-md-4 d-flex align-content-end flex-wrap">
-                <h1 class="text-center text-sm-center">KHẢI LAPTOP STORE</h1>
-                <h5 class="border-top border-3 border-dark d-none d-md-inline-block">Chuyên cung cấp laptop rẻ nhất phố</h5>
-            </div>
-            <div class="col-md-8">
-                <img src="img/banner.jpg" width="100%">
-            </div>
-        </header>
+  <!-- Trái tim bay được vẽ bằng CSS, không sử dụng hình ảnh hoặc thư viện ngoài. -->
+  <div class="ambient" aria-hidden="true">
+    <span class="float-heart" style="--left:6%;--size:13px;--delay:-4s;--duration:17s;--drift:65px;--opacity:.4"></span>
+    <span class="float-heart" style="--left:17%;--size:9px;--delay:-12s;--duration:20s;--drift:-50px;--opacity:.32;--heart-color:#e8a1b5"></span>
+    <span class="float-heart" style="--left:29%;--size:15px;--delay:-7s;--duration:23s;--drift:90px;--opacity:.30"></span>
+    <span class="float-heart" style="--left:42%;--size:9px;--delay:-16s;--duration:19s;--drift:-70px;--opacity:.32;--heart-color:#f3bdcb"></span>
+    <span class="float-heart" style="--left:56%;--size:10px;--delay:-1s;--duration:22s;--drift:70px;--opacity:.28"></span>
+    <span class="float-heart" style="--left:68%;--size:14px;--delay:-9s;--duration:20s;--drift:-80px;--opacity:.39;--heart-color:#e6a0b2"></span>
+    <span class="float-heart" style="--left:81%;--size:9px;--delay:-14s;--duration:18s;--drift:35px;--opacity:.36"></span>
+    <span class="float-heart" style="--left:94%;--size:13px;--delay:-5s;--duration:24s;--drift:-65px;--opacity:.36;--heart-color:#f0b0c0"></span>
+    <span class="float-heart" style="--left:11%;--size:7px;--delay:-20s;--duration:27s;--drift:35px;--opacity:.25"></span>
+    <span class="float-heart" style="--left:88%;--size:7px;--delay:-19s;--duration:26s;--drift:-35px;--opacity:.25"></span>
+  </div>
 
-        <!-- navbar -->
-        <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
-            <div class="container-fluid">
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#"><i class="fa-solid fa-house"></i> Trang chủ</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fa-solid fa-bars"></i> Giới thiệu</a>
-                  </li>                  
-                  <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fa-solid fa-phone"></i> Liên hệ</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fa-regular fa-envelope"></i> Góp ý</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fa-regular fa-user"></i> Hỏi Đáp</a>
-                  </li>  
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Tài khoản
-                    </a>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">Action</a></li>
-                      <li><a class="dropdown-item" href="#">Another action</a></li>
-                      <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                  </li>
-                </ul>                              
-              </div>
+  <main class="page">
+    <header class="heading">
+      <div class="eyebrow">MADE WITH LOVE <span aria-hidden="true">♡</span></div>
+      <h1>Có một lá thư <span>dành cho em</span></h1>
+      <p>Một vài lời anh muốn gửi riêng đến Xuân Nhi.</p>
+    </header>
 
-              <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a href="" class="nav-link">English</a>
-                </li>
-                <li class="nav-item">
-                    <a href="" class="nav-link">Tiếng Việt</a>
-                </li>
-              </ul>
-            </div>
-        </nav>
+    <section class="scene" id="scene" aria-label="Phong thư tình: giữ trái tim rồi kéo lên để mở">
+      <div class="envelope" id="envelope">
+        <div class="envelope-back"></div>
 
-        <!-- main -->
-        <main class="row mt-3">
-            <!-- vung san pham (9 cot) -->
-            <section class="col-lg-9 col-md-8">
-                <div class="row g-3">
-                    <!-- 1 san pham -->
-                    <div class="col-lg-4 col-md-6">
-                        <div class="card text-center">
-                            <div class="card-header">Macbook 2025</div>
-                            <div class="card-body">
-                                <a href=""><img class="w-100" src="img/mac1.jpg"></a>
-                            </div>
-                            <div class="card-footer">
-                                <div class="card-text fw-bold fs-4 text-danger">19,990,000</div>
-                                <div>CPU: i9-19999K</div>
-                                <div>RAM: 64GB</div>
-                                <div>SSD: 100TB</div>
-                                <p>GPU: RTX 5090</p>
-                                <button class="btn btn-primary">Mua</button>
-                            </div>
-                        </div>
-                    </div>
+        <article class="paper" id="paper">
+          <div class="paper-content">
+            <span class="paper-tag">A LETTER FOR YOU</span>
+            <span class="paper-decoration" aria-hidden="true">♡</span>
+            <h2>Gửi em, Xuân Nhi</h2>
 
-                    <div class="col-lg-4 col-md-6">
-                        <div class="card text-center">
-                            <div class="card-header">Macbook Pro 2025</div>
-                            <div class="card-body">
-                                <a href=""><img class="w-100" src="img/mac2.jpg"></a>
-                            </div>
-                            <div class="card-footer">
-                                <div class="card-text fw-bold fs-4 text-danger">29,990,000</div>
-                                <div>CPU: i9-19999K</div>
-                                <div>RAM: 64GB</div>
-                                <div>SSD: 100TB</div>
-                                <p>GPU: RTX 5090</p>
-                                <button class="btn btn-primary">Mua</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6">
-                        <div class="card text-center">
-                            <div class="card-header">Macbook Air 2025</div>
-                            <div class="card-body">
-                                <a href=""><img class="w-100" src="img/mac3.jpg"></a>
-                            </div>
-                            <div class="card-footer">
-                                <div class="card-text fw-bold fs-4 text-danger">39,990,000</div>
-                                <div>CPU: i9-19999K</div>
-                                <div>RAM: 64GB</div>
-                                <div>SSD: 100TB</div>
-                                <p>GPU: RTX 5090</p>
-                                <button class="btn btn-primary">Mua</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6">
-                        <div class="card text-center">
-                            <div class="card-header">Asus Vivobook</div>
-                            <div class="card-body">
-                                <a href=""><img class="w-100" src="img/asus1.jpg"></a>
-                            </div>
-                            <div class="card-footer">
-                                <div class="card-text fw-bold fs-4 text-danger">79,990,000</div>
-                                <div>CPU: i9-19999K</div>
-                                <div>RAM: 64GB</div>
-                                <div>SSD: 100TB</div>
-                                <p>GPU: RTX 5090</p>
-                                <button class="btn btn-primary">Mua</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6">
-                        <div class="card text-center">
-                            <div class="card-header">Asus TUF</div>
-                            <div class="card-body">
-                                <a href=""><img class="w-100" src="img/asus2.jpg"></a>
-                            </div>
-                            <div class="card-footer">
-                                <div class="card-text fw-bold fs-4 text-danger">89,990,000</div>
-                                <div>CPU: i9-19999K</div>
-                                <div>RAM: 64GB</div>
-                                <div>SSD: 100TB</div>
-                                <p>GPU: RTX 5090</p>
-                                <button class="btn btn-primary">Mua</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6">
-                        <div class="card text-center">
-                            <div class="card-header">Asus ROG</div>
-                            <div class="card-body">
-                                <a href=""><img class="w-100" src="img/asus3.jpg"></a>
-                            </div>
-                            <div class="card-footer">
-                                <div class="card-text fw-bold fs-4 text-danger">99,990,000</div>
-                                <div>CPU: i9-19999K</div>
-                                <div>RAM: 64GB</div>
-                                <div>SSD: 100TB</div>
-                                <p>GPU: RTX 5090</p>
-                                <button class="btn btn-primary">Mua</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6">
-                        <div class="card text-center">
-                            <div class="card-header">Dell Latitude</div>
-                            <div class="card-body">
-                                <a href=""><img class="w-100" src="img/dell1.jpg"></a>
-                            </div>
-                            <div class="card-footer">
-                                <div class="card-text fw-bold fs-4 text-danger">49,990,000</div>
-                                <div>CPU: i9-19999K</div>
-                                <div>RAM: 64GB</div>
-                                <div>SSD: 100TB</div>
-                                <p>GPU: RTX 5090</p>
-                                <button class="btn btn-primary">Mua</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6">
-                        <div class="card text-center">
-                            <div class="card-header">Dell Inspiron</div>
-                            <div class="card-body">
-                                <a href=""><img class="w-100" src="img/dell2.jpg"></a>
-                            </div>
-                            <div class="card-footer">
-                                <div class="card-text fw-bold fs-4 text-danger">59,990,000</div>
-                                <div>CPU: i9-19999K</div>
-                                <div>RAM: 64GB</div>
-                                <div>SSD: 100TB</div>
-                                <p>GPU: RTX 5090</p>
-                                <button class="btn btn-primary">Mua</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6">
-                        <div class="card text-center">
-                            <div class="card-header">Dell XPS</div>
-                            <div class="card-body">
-                                <a href=""><img class="w-100" src="img/dell3.jpg"></a>
-                            </div>
-                            <div class="card-footer">
-                                <div class="card-text fw-bold fs-4 text-danger">69,990,000</div>
-                                <div>CPU: i9-19999K</div>
-                                <div>RAM: 64GB</div>
-                                <div>SSD: 100TB</div>
-                                <p>GPU: RTX 5090</p>
-                                <button class="btn btn-primary">Mua</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6">
-                        <div class="card text-center">
-                            <div class="card-header">HP Victus</div>
-                            <div class="card-body">
-                                <a href=""><img class="w-100" src="img/hp1.jpg"></a>
-                            </div>
-                            <div class="card-footer">
-                                <div class="card-text fw-bold fs-4 text-danger">19,990,000</div>
-                                <div>CPU: i9-19999K</div>
-                                <div>RAM: 64GB</div>
-                                <div>SSD: 100TB</div>
-                                <p>GPU: RTX 5090</p>
-                                <button class="btn btn-primary">Mua</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6">
-                        <div class="card text-center">
-                            <div class="card-header">HP Pavilion</div>
-                            <div class="card-body">
-                                <a href=""><img class="w-100" src="img/hp2.jpg"></a>
-                            </div>
-                            <div class="card-footer">
-                                <div class="card-text fw-bold fs-4 text-danger">19,990,000</div>
-                                <div>CPU: i9-19999K</div>
-                                <div>RAM: 64GB</div>
-                                <div>SSD: 100TB</div>
-                                <p>GPU: RTX 5090</p>
-                                <button class="btn btn-primary">Mua</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6">
-                        <div class="card text-center">
-                            <div class="card-header">HP OmniBook</div>
-                            <div class="card-body">
-                                <a href=""><img class="w-100" src="img/hp3.jpg"></a>
-                            </div>
-                            <div class="card-footer">
-                                <div class="card-text fw-bold fs-4 text-danger">19,990,000</div>
-                                <div>CPU: i9-19999K</div>
-                                <div>RAM: 64GB</div>
-                                <div>SSD: 100TB</div>
-                                <p>GPU: RTX 5090</p>
-                                <button class="btn btn-primary">Mua</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6">
-                        <div class="card text-center">
-                            <div class="card-header">Lenovo ThinkPad</div>
-                            <div class="card-body">
-                                <a href=""><img class="w-100" src="img/lenovo1.jpg"></a>
-                            </div>
-                            <div class="card-footer">
-                                <div class="card-text fw-bold fs-4 text-danger">19,990,000</div>
-                                <div>CPU: i9-19999K</div>
-                                <div>RAM: 64GB</div>
-                                <div>SSD: 100TB</div>
-                                <p>GPU: RTX 5090</p>
-                                <button class="btn btn-primary">Mua</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6">
-                        <div class="card text-center">
-                            <div class="card-header">Lenovo LOQ</div>
-                            <div class="card-body">
-                                <a href=""><img class="w-100" src="img/lenovo2.jpg"></a>
-                            </div>
-                            <div class="card-footer">
-                                <div class="card-text fw-bold fs-4 text-danger">19,990,000</div>
-                                <div>CPU: i9-19999K</div>
-                                <div>RAM: 64GB</div>
-                                <div>SSD: 100TB</div>
-                                <p>GPU: RTX 5090</p>
-                                <button class="btn btn-primary">Mua</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6">
-                        <div class="card text-center">
-                            <div class="card-header">Lenovo Legion</div>
-                            <div class="card-body">
-                                <a href=""><img class="w-100" src="img/lenovo3.jpg"></a>
-                            </div>
-                            <div class="card-footer">
-                                <div class="card-text fw-bold fs-4 text-danger">19,990,000</div>
-                                <div>CPU: i9-19999K</div>
-                                <div>RAM: 64GB</div>
-                                <div>SSD: 100TB</div>
-                                <p>GPU: RTX 5090</p>
-                                <button class="btn btn-primary">Mua</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- vung side (3 cot) -->
-            <aside class="col-lg-3 col-md-4">
-                <!-- Nút View Cart -->
-                <div class="card shadow">
-                    <div class="card-body d-flex justify-content-center">
-                    <img class="w-25" src="img/shoppingcart.gif">
-                    </div>
-                    <a href="#cartModal" class="btn btn-primary" data-bs-toggle="modal">GIỎ HÀNG</a>
-                </div>
-                
-                <!-- Modal Cart -->
-                <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                        <h5 class="modal-title" id="cartModalLabel">Giỏ hàng của bạn</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                        <table class="table table-bordered">
-                            <thead>
-                            <tr>
-                                <th>Sản phẩm</th>
-                                <th>Số lượng</th>
-                                <th>Đơn giá</th>
-                                <th>Thành tiền</th>
-                                <th>Hành động</th>
-                            </tr>
-                            </thead>
-                            <tbody id="cartItems">
-                            <!-- Items will be dynamically inserted here -->
-                            </tbody>
-                        </table>
-                        <div class="text-end fw-bold fs-5">Tổng thành tiền: <span id="grandTotal" class="text-danger">0</span> VND</div>
-
-                        <!-- Thông tin khách hàng -->
-                        <h5 class="mb-3">Thông tin khách hàng</h5>
-                        <form id="customerForm">
-                            <div class="mb-3">
-                                <label class="form-label">Họ tên</label>
-                                <input type="text" class="form-control" id="customerName" required>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Số điện thoại</label>
-                                <input type="tel" class="form-control" id="customerPhone" required>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Email</label>
-                                <input type="email" class="form-control" id="customerEmail" required>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Địa chỉ giao hàng</label>
-                                <textarea class="form-control" id="customerAddress" rows="2" required></textarea>
-                            </div>
-                        </form>
-                        </div>
-                        <div class="modal-footer">
-                        <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
-                        <button type="button" class="btn btn-success" onclick="saveCart()">Đặt hàng</button>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-
-                <div class="card shadow my-3">
-                    <div class="card-body">
-                        <input type="search" class="form-control" placeholder="Tìm kiếm...">
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-header text-center">
-                        <i class="fa fa-bars" aria-hidden="true"></i>
-                        HÃNG
-                    </div>
-                    <div class="card-body">
-                        <div class="list-group list-group-flush">
-                            <button class="list-group-item list-group-item-action" onclick="filterProducts('')">Tất cả</button>
-                            <button class="list-group-item list-group-item-action" onclick="filterProducts('Macbook')">Macbook</button>
-                            <button class="list-group-item list-group-item-action" onclick="filterProducts('Asus')">Asus</button>
-                            <button class="list-group-item list-group-item-action" onclick="filterProducts('Dell')">Dell</button>
-                            <button class="list-group-item list-group-item-action" onclick="filterProducts('HP')">HP</button>
-                            <button class="list-group-item list-group-item-action" onclick="filterProducts('Lenovo')">Lenovo</button>                            
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card mt-3">
-                    <div class="card-header text-center">
-                        <i class="fa fa-bars" aria-hidden="true"></i>
-                        GIÁ TIỀN
-                    </div>
-                    <div class="card-body">
-                        <div class="list-group list-group-flush">
-                            <button class="list-group-item list-group-item-action" onclick="sortProducts('desc')">Giảm dần</button>
-                            <button class="list-group-item list-group-item-action" onclick="sortProducts('asc')">Tăng dần</button>
-                            <button class="list-group-item list-group-item-action" onclick="filterPriceRange(10000000, 30000000)">10 triệu - 30 triệu</button>
-                            <button class="list-group-item list-group-item-action" onclick="filterPriceRange(30000000, 50000000)">30 triệu - 50 triệu</button>
-                            <button class="list-group-item list-group-item-action" onclick="filterPriceRange(50000000, 70000000)">50 triệu - 70 triệu</button>
-                            <button class="list-group-item list-group-item-action" onclick="filterPriceRange(70000000, 100000000)">70 triệu - 100 triệu</button>
-                        </div>
-                    </div>
-                </div>
-            </aside>
-        </main>
-    </div> 
-    
-    <!-- footer -->
-    <footer class="bg-dark">
-        <div class="container-xl text-secondary pt-4 mt-3">
-            <div class="row">
-                <div class="col-md-6">
-                    <h5 class="text-white">THONG TIN</h5>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero officiis dolore deleniti eius dignissimos velit culpa magnam eligendi cupiditate a! Omnis facilis soluta corporis similique dolores nesciunt tempora, inventore itaque?
-                    </p>
-                </div>
-                <div class="col-md-3 col-6">
-                    <h5 class="text-white">SAN PHAM</h5>
-                    <nav class="nav flex-column">
-                        <a class="nav-link active" aria-current="page" href="#">Active</a>
-                        <a class="nav-link" href="#">Link</a>
-                        <a class="nav-link" href="#">Link</a>
-                        <a class="nav-link" href="#">Disabled</a>
-                    </nav>
-                </div>
-                <div class="col-md-3 col-6">
-                    <h5 class="text-white">THONG TIN NHANH</h5>
-                    <p>Goi mua hang: 19001990</p>
-                    <p>Goi mua hang: 19001990</p>
-                    <p>Goi mua hang: 19001990</p>
-                    <p>Goi mua hang: 19001990</p>
-                </div>
+            <div id="letterContent">
+              <p>Bức thư này sẽ hơi dài nên anh mong em sẽ cố gắng đọc hết vì đây là những lời từ sâu trong lòng anh, nếu không nói ra anh sẽ khó chịu đến chết mất.</p>
             </div>
 
-            <hr>
+            <div class="paper-signature">Khải ♡</div>
+          </div>
+        </article>
 
-            <div class="d-flex justify-content-between">
-                <p>Copyright &copy;, All Rights Reserved</p>
-                <div>
-                    <a href="" class="btn btn-secondary rounded-circle"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="" class="btn btn-secondary rounded-circle"><i class="fa-brands fa-x-twitter"></i></a>
-                    <a href="" class="btn btn-secondary rounded-circle"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="" class="btn btn-secondary rounded-circle"><i class="fa-brands fa-linkedin-in"></i></a>
-                </div>
-            </div>
+        <div class="envelope-sides"></div>
+        <div class="envelope-bottom"></div>
+        <div class="envelope-flap"></div>
+        <div class="lift-indicator" aria-hidden="true">
+          <span class="lift-label">KÉO LÊN</span>
+          <span class="lift-arrow">↑</span>
         </div>
-    </footer>
+        <button class="wax-seal" id="heartSeal" type="button" aria-label="Giữ trái tim và kéo lên để mở thư. Có thể nhấn Enter để mở bằng bàn phím.">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.2 10.55 19.9C5.4 15.28 2 12.22 2 8.45A5.42 5.42 0 0 1 7.5 3C9.24 3 10.91 3.8 12 5.08A5.94 5.94 0 0 1 16.5 3 5.42 5.42 0 0 1 22 8.45c0 3.77-3.4 6.83-8.55 11.46L12 21.2Z"/></svg>
+        </button>
+      </div>
 
-    <script>
-        function filterProducts(brand) {
-            // Lấy tất cả các phần tử có class .card-header (tên sản phẩm)
-            const cards = document.querySelectorAll('.card-header');
+      <p class="gesture-guide" id="gestureGuide"><span>↑</span> Giữ vào trái tim rồi <strong>kéo lên</strong> để mở thư</p>
+    </section>
 
-            // Lặp qua từng phần tử header (tức từng sản phẩm)
-            cards.forEach(header => {
-                // Tìm phần tử cha gần nhất có class col-lg-4 hoặc col-md-6 (tức là 1 sản phẩm)
-                const card = header.closest('.col-lg-4, .col-md-6');
+    <div class="actions">
+      <button class="close-button" id="closeButton" type="button" hidden>
+        <span aria-hidden="true">↶</span> Gấp thư lại
+      </button>
+    </div>
+    <p class="footer-note" id="statusNote" aria-live="polite">JUST FOR YOU · ♡</p>
+  </main>
 
-                // Kiểm tra nếu header có chứa chuỗi brand (ví dụ: 'Asus', 'Dell', ...)
-                // Hoặc nếu brand là rỗng '' (hiển thị tất cả)
-                if (header.textContent.includes(brand) || brand === '') {
-                    // Hiển thị sản phẩm
-                    card.style.display = 'block';
-                } else {
-                    // Ẩn sản phẩm không khớp brand
-                    card.style.display = 'none';
-                }
-            });
+
+  <!-- Trang đọc thư dài: tự xuất hiện sau khi kéo trái tim để mở phong thư. -->
+  <div class="reading-overlay" id="readingOverlay" role="presentation" aria-hidden="true">
+    <section class="reading-sheet" role="dialog" aria-modal="true" aria-label="Bức thư Khải gửi Xuân Nhi">
+      <div class="reading-topbar">
+        <span class="reading-overline">♡ &nbsp; A LETTER FOR XUÂN NHI</span>
+        <button class="reading-close" id="readerClose" type="button" aria-label="Gấp thư lại">↶ <span>Gấp thư lại</span></button>
+      </div>
+      <div class="reading-scroll" id="readingScroll" tabindex="0" aria-label="Nội dung thư, có thể cuộn để đọc">
+        <div class="letter-prose" id="fullLetter">
+          <h2>Gửi em, Xuân Nhi</h2>
+          <p>Bức thư này sẽ hơi dài nên anh mong em sẽ cố gắng đọc hết vì đây là những lời từ sâu trong lòng anh, nếu không nói ra anh sẽ khó chịu đến chết mất.</p>
+          <p>Hôm nay, ngày 18 tháng 11 năm 2026, là ngày anh tốt nghiệp Cao đẳng Công nghệ thông tin. Chắc em sẽ thắc mắc anh từng khoe đã học Đại học nay sao lại học Cao đẳng. Đó là 1 câu chuyện dài, nếu có cơ hội gặp em anh sẽ kể cho em nghe.</p>
+          <p>Hôm nay là 1 ngày vui, anh vui, mẹ anh vui, họ hàng anh vui, bạn bè anh vui, và anh muốn chia sẻ niềm vui đó cho 1 người đặc biệt nữa, uhm đúng vậy, là em đó. Nhưng anh lại nghĩ là em đang có chuyện gì đó, chắc là chuyện học hành, chuyện ở ktx, chuyện gia đình,… không rảnh hay cũng không có tâm trạng để đón nhận tin tức từ 1 người chỉ quen qua internet, hay cụ thể là game Liên Minh Huyền Thoại.</p>
+          <p>Em biết không, trong trận Liên Minh mà chúng mình gặp nhau lần đầu đó, từ 2 người xa lạ được ghép chung vào 1 trận ARAM lại vô tình bắt chung 1 tần số: luôn dùng chung biểu cảm giống nhau. Lúc đó anh cũng ko nghĩ gì nhiều, chỉ hơi bất ngờ vì lâu lắm rồi mới có người chung suy nghĩ và biểu cảm với mình như vậy. Lúc hết trận, anh tính kết bạn với em để tiếp tục chung vui với nhau, nếu được thì làm quen luôn. Nhưng anh nghĩ “thôi, chắc lại cũng như những cô gái trước thôi” nên anh bấm Đấu Lại và tìm trận khác. Thì ngay lúc đó em lại là người chủ động kết bạn với anh và rủ anh chơi cùng. Tụi mình cũng chỉ chơi vài trận rồi off, anh nghĩ chắc cũng chỉ đến thế thôi. Lúc đó anh thấy tên tài khoản em có để năm sinh là 2008 nên mới biết là em đang trong giai đoạn ôn thi Đại học. Anh biết đó là giai đoạn rất quan trọng trong cuộc đời của mỗi người, nên anh cũng chỉ chơi 1 mình mà ko rủ em, thấy em online anh cũng tôn trọng giây phút thư giãn của em mà ko vào chơi cùng.</p>
+          <p>Đến tháng 7, kỳ thi Đại học đã kết thúc, anh vào game thì thấy em để trạng thái là “đừng hỏi điểm”. Anh biết tâm trạng lúc đó của em thế nào nên chỉ hỏi thăm em có cần tâm sự gì ko thì em trả lời là ko sao cả. Lúc đó anh mới hỏi tên facebook của em để kết bạn nói chuyện cho vui, và sau đó là chuỗi ngày anh sửa lỗi online cho em, em nhớ không? Anh có hỏi thăm là em có bạn trai chưa thì em nói chưa, lúc đó anh cũng tính hỏi em có muốn làm bạn gái anh ko nhưng nghĩ lại là để dành 1 dịp khác đặc biệt hơn để nói câu tỏ tình đó.</p>
+          <p>Và rồi dịp đó cũng đến, là ngày 20 tháng 10 năm 2026, ngày Phụ nữ Việt Nam đó em. Buổi sáng anh vào facebook của em thì thấy em để trạng thái hẹn hò với ai đó, lòng cũng hơi buồn, nghĩ là em đã có bạn trai rồi. Đến tối anh vào lại thì em xoá trạng thái đó, anh mới hỏi kỹ là em thực sự có bạn trai chưa, em nói chưa nên anh mới nắm bắt cơ hội đó mà tỏ tình với em. Lúc đó anh tính tặng em 1 skin Liên Minh thật đẹp nhưng em lại không chơi được do không có laptop, mà tặng quà hiện vật thì em lại ở cách xa anh quá, 1 người ở Sài Gòn, 1 người ở Vũng Tàu. Nên anh quyết định tặng 1 số tiền cho em tiêu xài, chắc em vẫn nhớ nó là bao nhiêu phải không? 1 con số khá đặc biệt đấy. Lúc em nhận và đồng ý làm bạn gái anh, anh vui lắm ấy em. Tụi mình sau đó cũng trò chuyện rất thân mật, rất vui và rất hợp nhau. Rồi 1 hôm em nhắn cho anh là xe em bị hết bình, tụi mình nhắn qua lại rồi hôm sau em ko trả lời tin nhắn anh nữa. Lúc đó anh lo lắm em biết không? Anh lo lắng sốt ruột không biết em có bị làm sao không ấy em? Nhờ em kể Quế là bạn cùng phòng với em nên anh mới tìm đến bạn và hỏi thăm xem em có ổn không. Bạn nói là em ổn và đang bận học nên không trả lời được. Lúc anh biết rằng em vẫn ổn và an toàn thì anh nhẹ lòng lắm ấy em. Nhưng rồi 1 tuần, rồi 2 tuần trôi qua, em vẫn không trả lời tin nhắn của anh, anh tìm mọi cách để liên lạc với em nhưng vẫn không nhận được phản hồi nào từ em. Facebook thì em vẫn để trạng thái hẹn hò với anh nhưng anh lại không có 1 người con gái để nói chuyện, để chia sẻ những điều vô thường của cuộc sống này. Anh trân trọng mối quan hệ này lắm em biết không? 2 người cùng chung 1 sở thích, cùng chung 1 tần số khi chơi với nhau và khi trò chuyện với nhau. Anh cảm thấy rất vui và hạnh phúc khi được biết đến em, được tâm sự và kể chuyện vu vơ với em. </p>
+          <p>Cảm ơn em đã đọc đến tận cuối bức thư này, những lời anh nói ở trên là những lời thật lòng mà anh chất chứa hơn 2 tuần nay. Nếu trong em anh vẫn còn là 1 điều gì đó đặc biệt với em thì em hãy mở Facebook hoặc Zalo lên, nhắn cho anh vài câu thôi, để anh biết là anh vẫn đang có 1 người con gái sẽ đồng hành với anh trong cuộc sống này.</p>
+          <div class="letter-signature"><p>Yêu em,</p><p>Khải.</p></div>
+        </div>
+      </div>
+      <div class="reading-bottom"><span>♡</span> Lời từ trái tim <span>♡</span></div>
+    </section>
+  </div>
+
+  <script>
+    (() => {
+      'use strict';
+      const scene = document.getElementById('scene');
+      const envelope = document.getElementById('envelope');
+      const seal = document.getElementById('heartSeal');
+      const gestureGuide = document.getElementById('gestureGuide');
+      const closeButton = document.getElementById('closeButton');
+      const statusNote = document.getElementById('statusNote');
+      const readingOverlay = document.getElementById('readingOverlay');
+      const readerClose = document.getElementById('readerClose');
+      const readingScroll = document.getElementById('readingScroll');
+
+      let opened = false;
+      let dragging = false;
+      let pointerId = null;
+      let dragStartY = 0;
+      let progress = 0;
+      let animationTimer = null;
+      const clamp = (value) => Math.min(1, Math.max(0, value));
+      const maxPull = () => Math.max(72, Math.min(120, envelope.clientHeight * .35));
+
+      function setPull(value) {
+        progress = clamp(value);
+        seal.style.setProperty('--pull-y', `${Math.round(progress * maxPull())}px`);
+      }
+
+      function showFullLetter() {
+        if (!opened) return;
+        readingOverlay.classList.add('is-visible');
+        readingOverlay.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('reading-active');
+        readingScroll.scrollTop = 0;
+        readerClose.focus({ preventScroll: true });
+      }
+
+      function openLetter() {
+        if (opened) return;
+        opened = true;
+        dragging = false;
+        pointerId = null;
+        seal.classList.remove('is-dragging');
+        scene.classList.remove('is-pulling');
+        clearTimeout(animationTimer);
+        scene.classList.add('is-open');
+        seal.tabIndex = -1;
+        statusNote.textContent = 'MỘT CHÚT YÊU THƯƠNG · ♡';
+
+        animationTimer = setTimeout(() => {
+          scene.classList.add('is-revealed');
+          closeButton.hidden = false;
+          animationTimer = setTimeout(showFullLetter,
+            window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 800);
+        }, window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 680);
+      }
+
+      function closeLetter() {
+        if (!opened) return;
+        opened = false;
+        clearTimeout(animationTimer);
+        readingOverlay.classList.remove('is-visible');
+        readingOverlay.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('reading-active');
+        closeButton.hidden = true;
+        scene.classList.remove('is-revealed');
+        statusNote.textContent = 'JUST FOR YOU · ♡';
+        animationTimer = setTimeout(() => {
+          setPull(0);
+          scene.classList.remove('is-open');
+          seal.tabIndex = 0;
+          gestureGuide.textContent = '↑ Giữ vào trái tim rồi kéo lên để mở thư';
+        }, window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 640);
+      }
+
+      seal.addEventListener('pointerdown', (event) => {
+        if (opened || dragging) return;
+        if (event.pointerType === 'mouse' && event.button !== 0) return;
+        dragging = true;
+        pointerId = event.pointerId;
+        dragStartY = event.clientY;
+        seal.classList.add('is-dragging');
+        scene.classList.add('is-pulling');
+        seal.setPointerCapture(event.pointerId);
+        event.preventDefault();
+      });
+
+      seal.addEventListener('pointermove', (event) => {
+        if (!dragging || event.pointerId !== pointerId) return;
+        setPull((dragStartY - event.clientY) / maxPull());
+        gestureGuide.textContent = progress > .25 ? '↑ Tiếp tục kéo trái tim lên...' : '↑ Giữ trái tim và kéo lên';
+      });
+
+      function finishDrag(event) {
+        if (!dragging || event.pointerId !== pointerId) return;
+        dragging = false;
+        pointerId = null;
+        seal.classList.remove('is-dragging');
+        scene.classList.remove('is-pulling');
+        if (event.type !== 'pointercancel' && progress >= .8) {
+          openLetter();
+        } else {
+          setPull(0);
+          gestureGuide.textContent = '↑ Giữ vào trái tim rồi kéo lên để mở thư';
         }
+      }
 
-        function sortProducts(order) {
-            // Lấy container chứa tất cả các card sản phẩm (nằm trong phần 9 cột)
-            const container = document.querySelector('.col-lg-9 .row');
+      seal.addEventListener('pointerup', finishDrag);
+      seal.addEventListener('pointercancel', finishDrag);
+      seal.addEventListener('lostpointercapture', (event) => {
+        if (dragging && event.pointerId === pointerId) finishDrag(event);
+      });
 
-            // Lấy tất cả các card sản phẩm (class col-lg-4 hoặc col-md-6)
-            const cards = Array.from(container.querySelectorAll('.col-lg-4, .col-md-6'));
-
-            // Sắp xếp các card dựa trên giá tiền
-            cards.sort((a, b) => {
-                // Lấy giá tiền của từng sản phẩm A và B
-                // Dùng regex /[^\d]/g để xoá các ký tự không phải là số (dấu phẩy, chữ)
-                // Sau đó chuyển chuỗi thành số nguyên
-                const priceA = parseInt(a.querySelector('.card-footer .card-text').textContent.replace(/[^\d]/g, ''));
-                const priceB = parseInt(b.querySelector('.card-footer .card-text').textContent.replace(/[^\d]/g, ''));
-
-                // Nếu order = 'asc' (tăng dần), trả về priceA - priceB
-                // Nếu order = 'desc' (giảm dần), trả về priceB - priceA
-                return order === 'asc' ? priceA - priceB : priceB - priceA;
-            });
-
-            // Sau khi sắp xếp, gắn lại các card vào container theo thứ tự mới
-            cards.forEach(card => container.appendChild(card));
+      // Enter/Space và các công nghệ hỗ trợ vẫn có thể mở thư.
+      seal.addEventListener('keydown', (event) => {
+        if (opened) return;
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          openLetter();
         }
+      });
+      seal.addEventListener('click', (event) => {
+        if (event.detail === 0 && !opened) openLetter();
+      });
 
-        function filterPriceRange(min, max) {
-            const cards = document.querySelectorAll('.col-lg-4, .col-md-6');
-            cards.forEach(card => {
-                const price = parseInt(card.querySelector('.card-footer .card-text').textContent.replace(/[^\d]/g, ''));
-                
-                if (price >= min && price <= max) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        }
-
-
-        // Thêm chức năng tìm kiếm cho nút search
-        const searchInput = document.querySelector('input[type="search"]');
-        searchInput.addEventListener('input', function() {
-            const keyword = this.value.toLowerCase();
-            const cards = document.querySelectorAll('.card-header');
-
-            cards.forEach(header => {
-                const card = header.closest('.col-lg-4, .col-md-6');
-                const productName = header.textContent.toLowerCase();
-
-                if (productName.includes(keyword)) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        });
-
-        let cart = [];
-
-        // Load cart from Local Storage on page load
-        window.addEventListener('DOMContentLoaded', () => {
-            const savedCart = localStorage.getItem('cart');
-            if (savedCart) {
-            cart = JSON.parse(savedCart);
-            renderCart();
-            }
-        });
-
-        // Bắt sự kiện khi bấm nút "Mua"
-        document.querySelectorAll('.card-footer .btn-primary').forEach(button => {
-            button.addEventListener('click', e => {
-            e.preventDefault();
-            const card = e.target.closest('.card');
-            const product = card.querySelector('.card-header').innerText;
-            const price = parseInt(card.querySelector('.card-text').innerText.replace(/[^\d]/g, ''));
-
-            const existing = cart.find(item => item.product === product);
-            if (existing) {
-                existing.quantity++;
-            } else {
-                cart.push({ product, quantity: 1, price });
-            }
-
-            renderCart();
-            alert(`Đã thêm "${product}" vào giỏ hàng!`);
-            });
-        });
-
-        function renderCart() {
-            const cartTable = document.getElementById('cartItems');
-            cartTable.innerHTML = '';
-            let grandTotal = 0;
-
-            cart.forEach((item, index) => {
-            const itemTotal = item.price * item.quantity;
-            grandTotal += itemTotal;
-
-            const row = document.createElement('tr');
-            row.innerHTML = `
-                <td>${item.product}</td>
-                <td><input type="number" value="${item.quantity}" min="1" onchange="updateQuantity(${index}, this.value)"></td>
-                <td>${item.price.toLocaleString()}</td>
-                <td>${itemTotal.toLocaleString()}</td>
-                <td>
-                <button class="btn btn-sm btn-warning" onclick="updateQuantity(${index}, ${item.quantity + 1})">+</button>
-                <button class="btn btn-sm btn-warning" onclick="updateQuantity(${index}, ${item.quantity - 1})">-</button>
-                <button class="btn btn-sm btn-danger" onclick="removeItem(${index})">Xoá</button>
-                </td>
-            `;
-            cartTable.appendChild(row);
-            });
-
-            document.getElementById('grandTotal').innerText = grandTotal.toLocaleString();
-        }
-
-        function updateQuantity(index, quantity) {
-            if (quantity <= 0) {
-            removeItem(index);
-            } else {
-            cart[index].quantity = parseInt(quantity);
-            renderCart();
-            }
-        }
-
-        function removeItem(index) {
-            cart.splice(index, 1);
-            renderCart();
-        }
-
-        function saveCustomerOrder(newOrder) {
-            // 1. Lấy danh sách cũ (nếu có)
-            let orders = JSON.parse(localStorage.getItem('customerOrders')) || [];
-
-            // 2. Thêm đơn hàng mới
-            orders.push(newOrder);
-
-            // 3. Ghi lại vào localStorage
-            localStorage.setItem('customerOrders', JSON.stringify(orders));
-        }
-
-        function saveCart() {
-            if (cart.length === 0) {
-                alert('Giỏ hàng đang trống. Vui lòng thêm sản phẩm trước khi đặt hàng!');
-                return;
-            }
-
-            const customer = {
-                name: document.getElementById('customerName').value.trim(),
-                phone: document.getElementById('customerPhone').value.trim(),
-                email: document.getElementById('customerEmail').value.trim(),
-                address: document.getElementById('customerAddress').value.trim()
-            };
-
-            if (!customer.name || !customer.phone || !customer.email || !customer.address) {
-                alert('Vui lòng nhập đầy đủ thông tin khách hàng!');
-                return;
-            }
-
-            const phoneRegex = /^\d{10}$/;
-            const emailRegex = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
-
-            if (!phoneRegex.test(customer.phone)) {
-                alert('Số điện thoại phải đủ 10 số!');
-                return;
-            }
-
-            if (!emailRegex.test(customer.email)) {
-                alert('Email không đúng định dạng!');
-                return;
-            }
-
-            localStorage.setItem('cart', JSON.stringify(cart));
-            const newOrder = {
-                customer,
-                cart: [...cart], // sao chép giỏ hàng hiện tại
-                date: new Date()
-            };
-
-            saveCustomerOrder(newOrder);
-
-
-            alert('Giỏ hàng đã được lưu thành công!');
-        }
-
-    </script>
-        
+      closeButton.addEventListener('click', closeLetter);
+      readerClose.addEventListener('click', closeLetter);
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && opened) closeLetter();
+      });
+      window.addEventListener('resize', () => { if (!dragging && !opened) setPull(0); }, { passive: true });
+      setPull(0);
+    })();
+  </script>
 </body>
 </html>
